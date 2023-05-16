@@ -1,0 +1,29 @@
+{
+    "apiVersion": "serving.kserve.io/v1beta1",
+    "kind": "InferenceService",
+    "metadata": {
+        "annotations": {
+            "serving.kserve.io/deploymentMode": "ModelMesh"
+        },
+        "labels": {
+            "name": "demo",
+            "opendatahub.io/dashboard": "true"
+        },
+        "name": "demo",
+        "namespace": "demo"
+    },
+    "spec": {
+        "predictor": {
+            "model": {
+                "modelFormat": {
+                    "name": "sklearn"
+                },
+                "runtime": "mlserver-0.x",
+                "storage": {
+                    "key": "aws-connection-minio",
+                    "path": "1/1234567890abcdefghijklmnop/artifacts/model/model.pkl"
+                }
+            }
+        }
+    }
+}
