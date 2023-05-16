@@ -8,3 +8,20 @@ A simple service that polls a [mlflow](https://github.com/mlflow/mlflow) server 
 
 See Links:
 - https://github.com/eformat/rhods-mlserver-example
+
+## Demo
+
+Port forward [mlflow](https://ai-on-openshift.io/tools-and-applications/mlflow/mlflow/) running on OpenShift
+
+```bash
+oc -n daintree-dev port-forward svc/mlflow 5500:5500
+```
+
+Run this app with oc logged into your cluster already
+
+```bash
+mvn quarkus:dev
+```
+
+Setup mlserver serving runtime from here:
+- https://github.com/eformat/rhods-mlserver-example
